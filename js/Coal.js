@@ -7,6 +7,10 @@ import htm from "../web_modules/htm.js";
 
 const html = htm.bind(h);
 rawStyles({
+    body: {
+        margin: "0px",
+        overflow: "hidden",
+    },
     canvas: {
         margin: "0px",
         overflow: "hidden",
