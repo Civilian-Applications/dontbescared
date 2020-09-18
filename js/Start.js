@@ -40,7 +40,6 @@ const Start = (props /*: Props */) => {
 
             <div class="${styles.formContainer}">
                 <h2>Custom coordinates</h2>
-
                 <${Form} />
             </div>
         </div>
