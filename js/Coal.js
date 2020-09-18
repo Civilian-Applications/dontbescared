@@ -4,7 +4,6 @@ import { useState, useEffect } from "../web_modules/preact/hooks.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import screenfull from "../web_modules/screenfull.js";
 import htm from "../web_modules/htm.js";
-import parseQueryStringParams from "./parsedQueryStringParams.js";
 
 const html = htm.bind(h);
 rawStyles({
@@ -20,29 +19,25 @@ type Props = {
 };
 */
 const Coal = (props /*: Props */) => {
-    const p = parseQueryStringParams(props.params);
-
     // Defaults
-    let lat /*: number */ = -35.3082237;
-    let lng /*: number */ = 149.1222036;
-    let elevation /*: number */ = 700;
-    let scale /*: number */ = 500;
-    if (typeof p.lat !== "undefined") {
-        lat = p.lat;
+    let p = new URL(document.location.toString()).searchParams;
+    let lat /*: string */ = "";
+    let lng /*: string */ = "";
+    let elevation /*: string */ = "";
+    let scale /*: string */ = "";
+    // Browser only
+    if (typeof process === "undefined" || process.release.name !== "node") {
+        p = new URL(document.location.toString()).searchParams;
+        lat = p.get("lat") || "-35.3082237";
+        lng = p.get("lng") || "149.1222036";
+        elevation = p.get("elevation") || "700";
+        scale = p.get("scale") || "500";
+
+        console.log(lat);
+        console.log(lng);
+        console.log(elevation);
+        console.log(scale);
     }
-    if (typeof p.lng !== "undefined") {
-        lng = p.lng;
-    }
-    if (typeof p.elevation !== "undefined") {
-        elevation = p.elevation;
-    }
-    if (typeof p.scale !== "undefined") {
-        scale = p.scale;
-    }
-    const latString /*: string */ = lat.toString();
-    const lngString /*: string */ = lng.toString();
-    const elevationString /*: string */ = elevation.toString();
-    const scaleString /*: string */ = scale.toString();
 
     useEffect(() => {
         // Events
@@ -81,10 +76,10 @@ const Coal = (props /*: Props */) => {
                 ></a-asset-item>
             </a-assets>
             <a-entity
-                position="0 ${elevationString} 0"
-                scale="${scaleString} ${scaleString} ${scaleString} "
+                position="0 ${elevation} 0"
+                scale="${scale} ${scale} ${scale} "
                 look-at="[gps-camera]"
-                gps-entity-place="latitude: ${latString}; longitude: ${lngString};"
+                gps-entity-place="latitude: ${lat}; longitude: ${lng};"
             >
                 <a-entity
                     position="0 0 0"

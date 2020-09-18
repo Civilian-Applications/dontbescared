@@ -1,9 +1,16 @@
 // @flow
 import { h, render } from "../web_modules/preact.js";
+import { Router, Link } from "../web_modules/preact-router.js";
 import { useState, useEffect } from "../web_modules/preact/hooks.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import screenfull from "../web_modules/screenfull.js";
 import htm from "../web_modules/htm.js";
+import Nav from "./Nav.js";
+import Form from "./Form.js";
+import FormInputLat from "./FormInputLat.js";
+import FormInputLng from "./FormInputLng.js";
+import FormInputElevation from "./FormInputElevation.js";
+import FormInputScale from "./FormInputScale.js";
 
 const html = htm.bind(h);
 rawStyles({
@@ -12,12 +19,19 @@ rawStyles({
         overflow: "hidden",
     },
 });
+const [styles] = createStyles({
+    formContainer: {
+        width: "80%",
+        margin: "0 auto",
+    },
+});
 
 /*::
 type Props = {
 };
 */
 const Start = (props /*: Props */) => {
+    //
     useEffect(() => {
         // Events
         const mainContainer = document.getElementById("goodthing") || null;
@@ -43,23 +57,12 @@ const Start = (props /*: Props */) => {
 
     return html`
         <div>
-            <div>
-                <a
-                    activeClassName="active"
-                    href="/coal/${encodeURIComponent(
-                        "lat=-39.45&lng=149.2345&elevation=745&scale=500",
-                    )}"
-                    >Parliament</a
-                >
-            </div>
-            <div>
-                <a
-                    activeClassName="active"
-                    href="/coal/${encodeURIComponent(
-                        "lat=-33.521331&lng=151.346974&elevation=750&scale=200",
-                    )}"
-                    >The bay</a
-                >
+            <${Nav} />
+
+            <div class="${styles.formContainer}">
+                <h2>Custom coordinates</h2>
+
+                <${Form} />
             </div>
         </div>
     `;

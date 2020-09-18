@@ -1,8 +1,9 @@
-type Params = {
+type AppState = {
     lat: number,
     lng: number,
     elevation: number,
     scale: number,
+    rememberme: Boolean,
 };
 
 declare module "finalhandler" {
