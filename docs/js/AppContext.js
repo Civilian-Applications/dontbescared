@@ -16,28 +16,28 @@ const reducer = (state, action) =>
     // https://www.pika.dev/npm/@vve/immer
     produce(state, (draft) => {
         if (action.type === "UPDATE_ALL") {
-            draft.lat = action.payload.lat || 0;
-            draft.lng = action.payload.lng || 0;
-            draft.elevation = action.payload.elevation || 0;
-            draft.scale = action.payload.scale || 0;
+            draft.lat = action.payload.lat;
+            draft.lng = action.payload.lng;
+            draft.elevation = action.payload.elevation;
+            draft.scale = action.payload.scale;
         }
         if (action.type === "UPDATE_LAT") {
-            draft.lat = action.payload || 0;
+            draft.lat = action.payload;
         }
         if (action.type === "UPDATE_LNG") {
-            draft.lng = action.payload || 0;
+            draft.lng = action.payload;
         }
         if (action.type === "UPDATE_ELEVATION") {
-            draft.elevation = action.payload || 0;
+            draft.elevation = action.payload;
         }
         if (action.type === "UPDATE_SCALE") {
-            draft.scale = action.payload || 0;
+            draft.scale = action.payload;
         }
         if (action.type === "RESET") {
-            draft.lat = action.payload.lat || 0;
-            draft.lng = action.payload.lng || 0;
-            draft.elevation = action.payload.elevation || 0;
-            draft.scale = action.payload.scale || 0;
+            draft.lat = action.payload.lat;
+            draft.lng = action.payload.lng;
+            draft.elevation = action.payload.elevation;
+            draft.scale = action.payload.scale;
         }
     });
 
