@@ -32,28 +32,7 @@ type Props = {
 */
 const Start = (props /*: Props */) => {
     //
-    useEffect(() => {
-        // Events
-        const mainContainer = document.getElementById("goodthing") || null;
-        if (mainContainer !== null) {
-            // Modernizr doesn't have an es module npm package so it's
-            // imported with a <script> tag in `index.html`
-            // $FlowFixMe
-            if (Modernizr.hasEvent("touchend")) {
-                mainContainer.addEventListener(
-                    "touchend",
-                    () => {
-                        // Doesn't work on iPhone ~ https://caniuse.com/#feat=fullscreen
-                        // Plus we only want fullscreen on touch devices
-                        screenfull.request().then(() /*: void */ => {
-                            setTimeout(() /*: void */ => {}, 500);
-                        });
-                    },
-                    { once: true },
-                );
-            }
-        }
-    });
+    useEffect(() => {});
 
     return html`
         <div class="${styles.startContainer}">
