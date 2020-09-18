@@ -11,15 +11,15 @@ import FormInputLat from "./FormInputLat.js";
 import FormInputLng from "./FormInputLng.js";
 import FormInputElevation from "./FormInputElevation.js";
 import FormInputScale from "./FormInputScale.js";
+import { setAutoFreeze } from "../web_modules/immer.js";
 
 const html = htm.bind(h);
-rawStyles({
-    canvas: {
-        margin: "0px",
-        overflow: "hidden",
-    },
-});
+rawStyles({});
 const [styles] = createStyles({
+    startContainer: {
+        height: "100%",
+        overflow: "auto",
+    },
     formContainer: {
         width: "80%",
         margin: "0 auto",
@@ -56,7 +56,7 @@ const Start = (props /*: Props */) => {
     });
 
     return html`
-        <div>
+        <div class="${styles.startContainer}">
             <${Nav} />
 
             <div class="${styles.formContainer}">
