@@ -63,11 +63,11 @@ const Coal = (props /*: Props */) => {
                 mainContainer.addEventListener(
                     "touchend",
                     () => {
-                        // const localState = { lat, lng, elevation, scale };
-                        // dispatch({ type: "UPDATE_ALL", localState });
                         // Doesn't work on iPhone ~ https://caniuse.com/#feat=fullscreen
                         // Plus we only want fullscreen on touch devices
                         screenfull.request().then(() /*: void */ => {
+                            const localState = { lat, lng, elevation, scale };
+                            dispatch({ type: "UPDATE_ALL", localState });
                             setTimeout(() /*: void */ => {}, 500);
                         });
                     },
