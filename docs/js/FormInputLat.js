@@ -36,7 +36,7 @@ const FormInputLat = (props /*: Props */) => {
                 }}"
                 type="number"
                 size="10"
-                step="0.00001"
+                step="0.000000001"
                 title="Numbers only."
                 value="${state.lat}"
                 required
