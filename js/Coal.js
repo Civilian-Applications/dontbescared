@@ -62,15 +62,15 @@ const Coal = (props /*: Props */) => {
                     setThen(timestamp - (elapsed % fpsInterval));
 
                     if (coalElement !== null) {
-                        console.log("Doing the rotation...");
+                        // console.log("Doing the rotation...");
                         coalElement.object3D.rotation.y += rotation;
                         // For next time....
                         setRotation(rotation + 0.000002);
                     } else {
-                        console.log("Didn't find the coal...");
+                        //console.log("Didn't find the coal...");
                     }
                 } else {
-                    console.log(elapsed + " !> " + fpsInterval);
+                    //console.log(elapsed + " !> " + fpsInterval);
                     setTrigger(trigger + 1);
                 }
             }
