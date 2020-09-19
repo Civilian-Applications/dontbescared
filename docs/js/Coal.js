@@ -26,6 +26,8 @@ type Props = {
 const Coal = (props /*: Props */) => {
     // State
     const [rotation, setRotation] = useState(0); // - Doesn't work with Flow
+    const [then, setThen] = useState(null); // - Doesn't work with Flow
+    const [trigger, setTrigger] = useState(0); // - Doesn't work with Flow
 
     // Defaults
     let p = new URL(document.location.toString()).searchParams;
@@ -49,15 +51,30 @@ const Coal = (props /*: Props */) => {
             "coal",
         );
         const spinTheCoal = (timestamp /*: number */) /*: void */ => {
-            if (coalElement !== null) {
-                coalElement.object3D.rotation.y += rotation;
+            if (then === null) {
+                setThen(timestamp);
             } else {
-                console.log("Didn't find the coal...");
-            }
-            // For next time....
-            setRotation(rotation + 0.000005);
-        };
+                const fpsInterval = 1000 / 24;
+                const elapsed = timestamp - then;
+                if (elapsed > fpsInterval) {
+                    // Get ready for next frame by setting then=now, but also adjust for your
+                    // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
+                    setThen(timestamp - (elapsed % fpsInterval));
 
+                    if (coalElement !== null) {
+                        console.log("Doing the rotation...");
+                        coalElement.object3D.rotation.y += rotation;
+                        // For next time....
+                        setRotation(rotation + 0.000002);
+                    } else {
+                        console.log("Didn't find the coal...");
+                    }
+                } else {
+                    console.log(elapsed + " !> " + fpsInterval);
+                    setTrigger(trigger + 1);
+                }
+            }
+        };
         window.requestAnimationFrame(spinTheCoal);
 
         // Events
