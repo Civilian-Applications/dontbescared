@@ -67,7 +67,7 @@ const Nav = (props /*: Props */) => {
                                 payload: localState,
                             });
                         }}"
-						href="/coal/?lat=-33.521331&lng=151.346974&elevation=750&scale=200">
+						href="/coal/?lat=-33.521331&lng=151.346974&elevation=600&scale=500">
 							The bay
 					</${Link}>
 				</li>
