@@ -1,4 +1,4 @@
-import { n, m } from '../common/preact.module-c2015350.js';
+import { options as n, Component as m } from '../preact.js';
 
 // all vnodes referencing a given constructor
 const vnodesForComponent = new WeakMap();

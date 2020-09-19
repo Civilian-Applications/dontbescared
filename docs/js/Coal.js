@@ -4,6 +4,7 @@ import { useState, useEffect } from "../web_modules/preact/hooks.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import screenfull from "../web_modules/screenfull.js";
 import htm from "../web_modules/htm.js";
+import * as THREE from "../web_modules/three.js";
 
 const html = htm.bind(h);
 rawStyles({
@@ -23,6 +24,9 @@ type Props = {
 };
 */
 const Coal = (props /*: Props */) => {
+    // State
+    const [rotation, setRotation] = useState(0); // - Doesn't work with Flow
+
     // Defaults
     let p = new URL(document.location.toString()).searchParams;
     let lat /*: string */ = "";
@@ -37,14 +41,25 @@ const Coal = (props /*: Props */) => {
         lng = p.get("lng") || "149.1222036";
         elevation = p.get("elevation") || "700";
         scale = p.get("scale") || "500";
-
-        console.log(lat);
-        console.log(lng);
-        console.log(elevation);
-        console.log(scale);
     }
 
     useEffect(() => {
+        // Rotation
+        const coalElement /*:  Object  | null */ = document.getElementById(
+            "coal",
+        );
+        const spinTheCoal = (timestamp /*: number */) /*: void */ => {
+            if (coalElement !== null) {
+                coalElement.object3D.rotation.y += rotation;
+            } else {
+                console.log("Didn't find the coal...");
+            }
+            // For next time....
+            setRotation(rotation + 0.000005);
+        };
+
+        window.requestAnimationFrame(spinTheCoal);
+
         // Events
         const mainContainer = document.getElementById("goodthing") || null;
         if (mainContainer !== null) {
@@ -58,7 +73,7 @@ const Coal = (props /*: Props */) => {
                         // Doesn't work on iPhone ~ https://caniuse.com/#feat=fullscreen
                         // Plus we only want fullscreen on touch devices
                         screenfull.request().then(() /*: void */ => {
-                            setTimeout(() /*: void */ => {}, 500);
+                            // setTimeout(() /*: void */ => {}, 500);
                         });
                     },
                     { once: true },
@@ -71,7 +86,7 @@ const Coal = (props /*: Props */) => {
         <a-scene
             embedded
             vr-mode-ui="enabled: false"
-            arjs="sourceType: webcam; debugUIEnabled: false;videoTexture: true;"
+            arjs="sourceType:webcam;debugUIEnabled:false;videoTexture:true;"
         >
             <a-assets timeout="30000">
                 <a-asset-item
@@ -81,9 +96,9 @@ const Coal = (props /*: Props */) => {
                 ></a-asset-item>
             </a-assets>
             <a-entity
+                id="coal"
                 position="0 ${elevation} 0"
                 scale="${scale} ${scale} ${scale} "
-                look-at="[gps-camera]"
                 gps-entity-place="latitude: ${lat}; longitude: ${lng};"
             >
                 <a-entity
@@ -108,6 +123,7 @@ const Coal = (props /*: Props */) => {
         </a-scene>
     `;
 };
+// look-at="[gps-camera]"
 // simulateAltitude:500;
 // simulateLatitude:-35.30822;
 // simulateLongitude:149.1239828;"

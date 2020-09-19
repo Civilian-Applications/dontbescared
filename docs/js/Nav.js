@@ -28,7 +28,7 @@ const Nav = (props /*: Props */) => {
 					<${Link}
 						activeClassName="${styles.activeNavItem}"
 						href="/">
-							v0.6
+							v0.7
 					</${Link}>
 				</li>
 				<li>
@@ -59,8 +59,8 @@ const Nav = (props /*: Props */) => {
                             const localState = {
                                 lat: -33.52133,
                                 lng: 151.346974,
-                                elevation: 750,
-                                scale: 200,
+                                elevation: 600,
+                                scale: 500,
                             };
                             dispatch({
                                 type: "UPDATE_ALL",

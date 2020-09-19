@@ -1,4 +1,4 @@
-import { x, L, m, h } from './common/preact.module-c2015350.js';
+import { toChildArray as x, cloneElement as L, Component as m, createElement as h } from './preact.js';
 
 var EMPTY$1 = {};
 
