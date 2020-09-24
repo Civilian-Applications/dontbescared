@@ -136,7 +136,7 @@ const Coal = (props /*: Props */) => {
 			maxDistance:0;"
             ></a-camera>
             <!-- LIGHTING-->
-            <a-entity light="type: ambient; intensity: 3;"></a-entity>
+            <a-entity light="type: ambient; intensity: 2.5;"></a-entity>
         </a-scene>
     `;
 };
