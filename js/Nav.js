@@ -39,7 +39,7 @@ const Nav = (props /*: Props */) => {
                             const localState = {
                                 lat: -39.45,
                                 lng: 149.2345,
-                                elevation: 745,
+                                elevation: 900,
                                 scale: 500,
                             };
                             dispatch({
@@ -47,7 +47,7 @@ const Nav = (props /*: Props */) => {
                                 payload: localState,
                             });
                         }}"
-						href="/coal/?lat=-39.45&lng=149.2345&elevation=745&scale=500">
+						href="/coal/?lat=-35.3082237&lng=149.1222036&elevation=900&scale=500">
 							Parliament
 					</${Link}>
 				</li>
