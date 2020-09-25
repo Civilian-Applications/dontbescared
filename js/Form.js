@@ -1,12 +1,15 @@
 // @flow
 import { h, render } from "../web_modules/preact.js";
-import { useState, useEffect } from "../web_modules/preact/hooks.js";
+import { route } from "../web_modules/preact-router.js";
+import { useContext } from "../web_modules/preact/hooks.js";
+import { AppContext } from "./AppContext.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import htm from "../web_modules/htm.js";
 import FormInputLat from "./FormInputLat.js";
 import FormInputLng from "./FormInputLng.js";
 import FormInputElevation from "./FormInputElevation.js";
 import FormInputScale from "./FormInputScale.js";
+import screenfull from "../web_modules/screenfull.js";
 
 const html = htm.bind(h);
 rawStyles({
@@ -22,11 +25,23 @@ type Props = {
 };
 */
 const Form = (props /*: Props */) => {
-    //
-    useEffect(() => {});
+    // State
+    const [state, dispatch] = useContext(AppContext); // - Doesn't work with Flow
 
     return html`
-        <form action="/coal/" method="GET">
+        <form
+            action="/coal/"
+            method="GET"
+            onSubmit="${(e /*:  Event */) /*: void */ => {
+                e.preventDefault();
+                screenfull.request().then(() /*: void */ => {
+                    // setTimeout(() /*: void */ => {}, 500);
+                    route(
+                        `/coal/?lat=-${state.lat}&lng=${state.lng}&elevation=${state.elevation}&scale=${state.scale}`,
+                    );
+                });
+            }}"
+        >
             <fieldset>
                 <div class="row">
                     <${FormInputLat} />
