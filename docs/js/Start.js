@@ -24,9 +24,13 @@ const [styles] = createStyles({
         margin: "0 3rem",
     },
     startChild: {
-        color: "white",
-        fontSize: "1.2rem",
         margin: "0 auto",
+    },
+    startChildCopy: {
+        color: "white",
+        fontSize: "1.4rem",
+        marginBottom: "2rem",
+        textAlign: "center",
     },
 });
 
@@ -39,7 +43,7 @@ const Start = (props /*: Props */) => {
     return html`
         <div class="${styles.startContainer}">
             <div class="${styles.contentContainer}">
-                <div class="${styles.startChild}">
+                <div class="${styles.startChild} ${styles.startChildCopy}">
                     <p>
                         Don't be scared!
                     </p>
