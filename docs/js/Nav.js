@@ -29,7 +29,7 @@ const Nav = (props /*: Props */) => {
 					<${Link}
 						activeClassName="${styles.activeNavItem}"
 						href="/">
-							v0.19
+							v0.20
 					</${Link}>
 				</li>
 				<li>
@@ -77,6 +77,17 @@ const Nav = (props /*: Props */) => {
 						href="/coal/?lat=-33.521331&lng=151.346974&elevation=600&scale=500">
 							The bay
 					</${Link}>
+				</li>
+				<li>
+					<a
+						onClick="${() => {
+                            screenfull.request().then(() /*: void */ => {
+                                // setTimeout(() /*: void */ => {}, 500);
+                            });
+                        }}"
+						href="#">
+							[  FULL ]
+					</a>
 				</li>
 			</ul>
 		</nav>
