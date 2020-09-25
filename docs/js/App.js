@@ -19,7 +19,7 @@ const App /*: function */ = (props /*: Props */) => {
     		<${Router}  url=${props.url}>
 				<${Start} path="/" />
 				<${Debug} path="/debug/" />
-				<${Coal} path="/coal/" />
+				<${Coal} path="/coal/:params?" />
     		</${Router}>
     	</${AppProvider} >
   `;

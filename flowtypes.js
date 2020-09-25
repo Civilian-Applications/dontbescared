@@ -6,6 +6,13 @@ type AppState = {
     rememberme: Boolean,
 };
 
+type Params = {
+    lat: string,
+    lng: string,
+    elevation: string,
+    scale: string,
+};
+
 declare module "finalhandler" {
     declare module.exports: any;
 }

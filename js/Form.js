@@ -37,7 +37,7 @@ const Form = (props /*: Props */) => {
                 screenfull.request().then(() /*: void */ => {
                     // setTimeout(() /*: void */ => {}, 500);
                     route(
-                        `/coal/?lat=-${state.lat}&lng=${state.lng}&elevation=${state.elevation}&scale=${state.scale}`,
+                        `/coal/lat=${state.lat}&lng=${state.lng}&elevation=${state.elevation}&scale=${state.scale}`,
                     );
                 });
             }}"

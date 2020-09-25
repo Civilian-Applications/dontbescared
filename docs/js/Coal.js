@@ -4,6 +4,7 @@ import { useState, useEffect } from "../web_modules/preact/hooks.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import htm from "../web_modules/htm.js";
 import * as THREE from "../web_modules/three.js";
+import parsedQueryStringParams from "./parsedQueryStringParams.js";
 
 const html = htm.bind(h);
 rawStyles({
@@ -19,7 +20,7 @@ rawStyles({
 
 /*::
 type Props = {
-	params: string
+	params?: string
 };
 */
 const Coal = (props /*: Props */) => {
@@ -29,19 +30,28 @@ const Coal = (props /*: Props */) => {
     const [trigger, setTrigger] = useState(0); // - Doesn't work with Flow
 
     // Defaults
-    let p = new URL(document.location.toString()).searchParams;
-    let lat /*: string */ = "";
-    let lng /*: string */ = "";
-    let elevation /*: string */ = "";
-    let scale /*: string */ = "";
-    // Browser only
+    let searchParams /*: URLSearchParams */;
+    let p /*: Params */;
+    let lat /*: string */ = "-35.3082237";
+    let lng /*: string */ = "149.1222036";
+    let elevation /*: string */ = "700";
+    let scale /*: string */ = "500";
 
+    // Browser only
     if (typeof process === "undefined" || process.release.name !== "node") {
-        p = new URL(document.location.toString()).searchParams;
-        lat = p.get("lat") || "-35.3082237";
-        lng = p.get("lng") || "149.1222036";
-        elevation = p.get("elevation") || "700";
-        scale = p.get("scale") || "500";
+        if (props.params !== "") {
+            p = parsedQueryStringParams(props.params);
+            lat = p.lat;
+            lng = p.lng;
+            elevation = p.elevation;
+            scale = p.scale;
+        } else {
+            searchParams = new URL(document.location.toString()).searchParams;
+            lat = searchParams.get("lat") || "";
+            lng = searchParams.get("lng") || "";
+            elevation = searchParams.get("elevation") || "";
+            scale = searchParams.get("scale") || "";
+        }
     }
 
     useEffect(() => {
@@ -118,10 +128,5 @@ const Coal = (props /*: Props */) => {
         </a-scene>
     `;
 };
-// look-at="[gps-camera]"
-// simulateAltitude:500;
-// simulateLatitude:-35.30822;
-// simulateLongitude:149.1239828;"
-// Elevation: https://elvis2018-ga.fmecloud.com/fmedatastreaming/client_access/ELVIS_GetElevationAtPoint.fmw?pt_lat=-35.3082237&pt_long=149.1222036
 
 export default Coal;
