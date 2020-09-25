@@ -18,10 +18,13 @@ rawStyles({});
 const [styles] = createStyles({
     startContainer: {
         height: "100%",
-        overflow: "auto",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        boxSizing: "border-box",
+        padding: "3rem",
     },
-    formContainer: {
-        width: "80%",
+    startChild: {
         margin: "0 auto",
     },
 });
@@ -36,11 +39,24 @@ const Start = (props /*: Props */) => {
 
     return html`
         <div class="${styles.startContainer}">
-            <${Nav} />
-
-            <div class="${styles.formContainer}">
-                <h2>Custom coordinates</h2>
-                <${Form} />
+            <div class="${styles.startChild}">
+                <p>
+                    Welcome! Please point your phone at Parliament House and
+                    press "Start" below to see the augmented-reality artwork.
+                </p>
+            </div>
+            <div class="${styles.startChild}">
+                <a
+                    class="blue waves-effect waves-light btn-small"
+                    data-cy="logout"
+                    onClick="${() /*: void */ => {
+                        screenfull.request().then(() /*: void */ => {
+                            // setTimeout(() /*: void */ => {}, 500);
+                        });
+                    }}"
+                    href="/coal/?lat=-35.3082237&lng=149.1222036&elevation=900&scale=500"
+                    >Start <i class="material-icons right">login</i></a
+                >
             </div>
         </div>
     `;
