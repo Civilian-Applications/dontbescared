@@ -16,7 +16,7 @@ import { setAutoFreeze } from "../web_modules/immer.js";
 const html = htm.bind(h);
 rawStyles({});
 const [styles] = createStyles({
-    startContainer: {
+    debugContainer: {
         height: "100%",
         overflow: "auto",
     },
@@ -35,7 +35,7 @@ const Debug = (props /*: Props */) => {
     useEffect(() => {});
 
     return html`
-        <div class="${styles.startContainer}">
+        <div class="${styles.debugContainer}">
             <${Nav} />
 
             <div class="${styles.formContainer}">

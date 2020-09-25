@@ -21,7 +21,7 @@ const [styles] = createStyles({
         justifyContent: "center",
         boxSizing: "border-box",
         padding: "3rem",
-        margin: "3rem",
+        margin: "0 3rem",
     },
     startChild: {
         color: "white",
