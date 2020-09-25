@@ -17,7 +17,7 @@ const html = htm.bind(h);
 rawStyles({});
 const [styles] = createStyles({
     debugContainer: {
-        minHeight: "100%",
+        height: "100%",
         overflow: "auto",
     },
     formContainer: {

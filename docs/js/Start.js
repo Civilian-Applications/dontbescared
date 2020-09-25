@@ -9,13 +9,13 @@ const html = htm.bind(h);
 rawStyles({});
 const [styles] = createStyles({
     startContainer: {
-        minHeight: "100%",
+        height: "100%",
         backgroundImage: "url(/img/dbs_background.2.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
     },
     contentContainer: {
-        minHeight: "100%",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
