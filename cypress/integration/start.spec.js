@@ -6,7 +6,7 @@ context("Actions", () => {
     // $FlowFixMe
     beforeEach(() => {
         // $FlowFixMe
-        cy.visit("http://localhost:3000");
+        cy.visit("http://localhost:4000");
     });
     // $FlowFixMe
     afterEach(() => {
@@ -14,20 +14,29 @@ context("Actions", () => {
         localStorage.clear();
     });
 
-    // https://on.cypress.io/interacting-with-elements
-
     // $FlowFixMe
-    it("The start page has a nav with links", () => {
+    it("The start page has copy", () => {
         // $FlowFixMe
-        cy.get("nav[data-cy=nav] ul").children().should("have.length", 3);
-        cy.get("a[data-cy=parliament]").should("exist");
-        cy.get("a[data-cy=bay]").should("exist");
+        cy.get("div[data-cy=copy]").should("exist");
+        cy.get("div[data-cy=copy]").should("contain", "Don't be scared!");
     });
-    it("The start page has custom input fields for lat, lng, elevation and scale", () => {
+    // $FlowFixMe
+    it("The start page has a Start", () => {
         // $FlowFixMe
-        cy.get("input[data-cy=lat]").should("exist");
-        cy.get("input[data-cy=lng]").should("exist");
-        cy.get("input[data-cy=elevation]").should("exist");
-        cy.get("input[data-cy=scale]").should("exist");
+        cy.get("a[data-cy=start]").should("exist");
+    });
+
+    // address link
+    it("The start link works", () => {
+        // $FlowFixMe
+        cy.get("a[data-cy=start]").then(function ($a) {
+            const href = $a.prop("href");
+            cy.request(href)
+                .its("body")
+                .should(
+                    "include",
+                    '<div id="goodthing" data-goodthing><!-- GOODTHING --></div data-goodthing>',
+                );
+        });
     });
 });

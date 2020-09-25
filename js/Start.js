@@ -9,13 +9,13 @@ const html = htm.bind(h);
 rawStyles({});
 const [styles] = createStyles({
     startContainer: {
-        height: "100%",
+        minHeight: "100%",
         backgroundImage: "url(/img/dbs_background.2.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
     },
     contentContainer: {
-        height: "100%",
+        minHeight: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -43,7 +43,10 @@ const Start = (props /*: Props */) => {
     return html`
         <div class="${styles.startContainer}">
             <div class="${styles.contentContainer}">
-                <div class="${styles.startChild} ${styles.startChildCopy}">
+                <div
+                    data-cy="copy"
+                    class="${styles.startChild} ${styles.startChildCopy}"
+                >
                     <p>
                         Don't be scared!
                     </p>
@@ -54,8 +57,8 @@ const Start = (props /*: Props */) => {
                 </div>
                 <div class="${styles.startChild}">
                     <a
+                        data-cy="start"
                         class="blue waves-effect waves-light btn-small"
-                        data-cy="logout"
                         onClick="${() /*: void */ => {
                             screenfull.request().then(() /*: void */ => {
                                 // setTimeout(() /*: void */ => {}, 500);

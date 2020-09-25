@@ -24,37 +24,44 @@ type Props = {
 };
 */
 const Coal = (props /*: Props */) => {
-    // State
+    // State for coordinates
+    const [coordinates, setCoordinates] = useState(false); // - Doesn't work with Flow
+    const [lat, setLat] = useState("-35.3082237"); // - Doesn't work with Flow
+    const [lng, setLng] = useState("149.1222036"); // - Doesn't work with Flow
+    const [elevation, setElevation] = useState("700"); // - Doesn't work with Flow
+    const [scale, setScale] = useState("500"); // - Doesn't work with Flow
+    // State for rotation
     const [rotation, setRotation] = useState(0); // - Doesn't work with Flow
     const [then, setThen] = useState(null); // - Doesn't work with Flow
     const [trigger, setTrigger] = useState(0); // - Doesn't work with Flow
 
-    // Defaults
-    let searchParams /*: URLSearchParams */;
-    let p /*: Params */;
-    let lat /*: string */ = "-35.3082237";
-    let lng /*: string */ = "149.1222036";
-    let elevation /*: string */ = "700";
-    let scale /*: string */ = "500";
-
-    // Browser only
-    if (typeof process === "undefined" || process.release.name !== "node") {
-        if (props.params !== "") {
-            p = parsedQueryStringParams(props.params);
-            lat = p.lat;
-            lng = p.lng;
-            elevation = p.elevation;
-            scale = p.scale;
-        } else {
-            searchParams = new URL(document.location.toString()).searchParams;
-            lat = searchParams.get("lat") || "";
-            lng = searchParams.get("lng") || "";
-            elevation = searchParams.get("elevation") || "";
-            scale = searchParams.get("scale") || "";
-        }
-    }
-
     useEffect(() => {
+        // Pulling params from the URL in various ways
+        if (props.params !== "" && coordinates === false) {
+            let p /*: Params */ = parsedQueryStringParams(props.params);
+            setLat(p.lat);
+            setLng(p.lng);
+            setElevation(p.elevation);
+            setScale(p.scale);
+            setCoordinates(true);
+        } else {
+            let searchParams /*: URLSearchParams */ = new URL(
+                document.location.toString(),
+            ).searchParams;
+            if (
+                searchParams.has("lat") &&
+                searchParams.has("lng") &&
+                searchParams.has("elevation") &&
+                searchParams.has("scale") &&
+                coordinates === false
+            ) {
+                setLat(searchParams.get("lat"));
+                setLng(searchParams.get("lng"));
+                setElevation(searchParams.get("elevation"));
+                setScale(searchParams.get("scale"));
+            }
+        }
+
         // Rotation
         const coalElement /*:  Object  | null */ = document.getElementById(
             "coal",
