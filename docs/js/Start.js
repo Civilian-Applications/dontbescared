@@ -20,16 +20,16 @@ const [styles] = createStyles({
         flexDirection: "column",
         justifyContent: "center",
         boxSizing: "border-box",
-        padding: "3rem",
-        margin: "0 3rem",
+        padding: "1rem",
+        margin: "0 1rem",
     },
     startChild: {
         margin: "0 auto",
     },
     startChildCopy: {
         color: "white",
-        fontSize: "1.4rem",
-        marginBottom: "2rem",
+        fontSize: "1rem",
+        marginBottom: "1rem",
         textAlign: "center",
     },
 });
