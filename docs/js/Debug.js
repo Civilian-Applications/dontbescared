@@ -21,7 +21,7 @@ const [styles] = createStyles({
         overflow: "auto",
     },
     formContainer: {
-        width: "80%",
+        padding: "0 1rem",
         margin: "0 auto",
     },
 });
