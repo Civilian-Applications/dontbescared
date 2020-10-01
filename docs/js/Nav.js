@@ -29,7 +29,7 @@ const Nav = (props /*: Props */) => {
 					<${Link}
 						activeClassName="${styles.activeNavItem}"
 						href="/">
-							v0.26
+							v0.27
 					</${Link}>
 				</li>
 				<li>
@@ -40,10 +40,10 @@ const Nav = (props /*: Props */) => {
                             screenfull.request().then(() /*: void */ => {
                                 // setTimeout(() /*: void */ => {}, 500);
                                 const localState = {
-                                    lat: -39.45,
-                                    lng: 149.2345,
-                                    elevation: 900,
-                                    scale: 500,
+                                    lat: -35.306203,
+                                    lng: 149.1250937,
+                                    elevation: 1400,
+                                    scale: 1000,
                                 };
                                 dispatch({
                                     type: "UPDATE_ALL",
@@ -51,7 +51,7 @@ const Nav = (props /*: Props */) => {
                                 });
                             });
                         }}"
-						href="/coal/?lat=-35.3082237&lng=149.1222036&elevation=900&scale=500">
+						href="/coal/?lat=-35.3062030&lng=149.1250937&elevation=1400&scale=1000">
 							Parliament
 					</${Link}>
 				</li>
