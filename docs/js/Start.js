@@ -64,7 +64,7 @@ const Start = (props /*: Props */) => {
                                 // setTimeout(() /*: void */ => {}, 500);
                             });
                         }}"
-                        href="/coal/?lat=-35.3082237&lng=149.1222036&elevation=900&scale=500"
+                        href="/coal/?lat=-35.306203&lng=149.1250937&elevation=1400&scale=1000"
                         >Start <i class="material-icons right">login</i></a
                     >
                 </div>

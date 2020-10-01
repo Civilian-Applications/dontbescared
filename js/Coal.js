@@ -26,10 +26,10 @@ type Props = {
 const Coal = (props /*: Props */) => {
     // State for coordinates
     const [coordinates, setCoordinates] = useState(false); // - Doesn't work with Flow
-    const [lat, setLat] = useState("-35.3082237"); // - Doesn't work with Flow
-    const [lng, setLng] = useState("149.1222036"); // - Doesn't work with Flow
-    const [elevation, setElevation] = useState("700"); // - Doesn't work with Flow
-    const [scale, setScale] = useState("500"); // - Doesn't work with Flow
+    const [lat, setLat] = useState("-35.306203"); // - Doesn't work with Flow
+    const [lng, setLng] = useState("149.1250937"); // - Doesn't work with Flow
+    const [elevation, setElevation] = useState("1400"); // - Doesn't work with Flow
+    const [scale, setScale] = useState("1000"); // - Doesn't work with Flow
     // State for rotation
     const [rotation, setRotation] = useState(0); // - Doesn't work with Flow
     const [then, setThen] = useState(null); // - Doesn't work with Flow
