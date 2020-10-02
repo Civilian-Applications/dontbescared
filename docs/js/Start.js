@@ -38,6 +38,7 @@ const Start = (props /*: Props */) => {
     //
     const [coords /*: Coordinates */, setCoords] = useState({});
     const [video /*: Coordinates */, setVideo] = useState(false);
+    const [location /*: null | string | true */, setLocation] = useState(null);
 
     return html`
         <div class="${styles.startContainer}">
@@ -47,11 +48,19 @@ const Start = (props /*: Props */) => {
                     if (!Modernizr.getusermedia) {
                         return html`<${StartTheBad} />`;
                     } else if (
-                        coords.latitude === undefined ||
-                        coords.longitude === undefined
+                        (coords.latitude === undefined ||
+                            coords.longitude === undefined) &&
+                        location === null
                     ) {
                         return html`<${StartGetLocation}
                             setCoords=${setCoords}
+                            setLocation=${setLocation}
+                        />`;
+                    } else if (typeof location === "string") {
+                        return html`<${StartGetLocation}
+                            setCoords=${setCoords}
+                            setLocation=${setLocation}
+                            problem="${location}"
                         />`;
                     } else if (video === false) {
                         return html`<${StartGetVideo} setVideo=${setVideo} />`;

@@ -21,7 +21,9 @@ const [styles] = createStyles({
 
 /*::
 type Props = {
-	setCoords: function
+	setCoords: function,
+	setLocation: function,
+	problem?: string
 };
 */
 const StartGetLocation = (props /*: Props */) => {
@@ -32,6 +34,22 @@ const StartGetLocation = (props /*: Props */) => {
             data-cy="copy"
             class="${styles.startChild} ${styles.startChildCopy}"
         >
+            ${(() => {
+                if (typeof props.problem !== "undefined") {
+                    return html` <p>${props.problem}. Please try again.</p> `;
+                } else {
+                    return html`
+                        <p>
+                            Don't be scared!
+                        </p>
+                        <p>
+                            Thanks for visiting. Assuming you are on location
+                            near Parliament House in Canberra, you are just a
+                            few quick steps away from seeing the artwork.
+                        </p>
+                    `;
+                }
+            })()}
             <p>
                 Step 1: Verify your location
             </p>
@@ -50,24 +68,14 @@ const StartGetLocation = (props /*: Props */) => {
 
                         const success = (pos /*: Position */) /*: void */ => {
                             props.setCoords(pos.coords);
-
-                            console.log("Your current position is:");
-                            console.log(
-                                `Latitude : ${pos.coords.latitude || ""}`,
-                            );
-                            console.log(
-                                `Longitude: ${pos.coords.longitude || ""}`,
-                            );
-                            console.log(
-                                `More or less ${
-                                    pos.coords.accuracy || ""
-                                } meters.`,
-                            );
+                            props.setLocation(true);
                         };
 
-                        function error(err) {
-                            console.warn(`ERROR(${err.code}): ${err.message}`);
-                        }
+                        const error = (err /*: Object */) /*: void */ => {
+                            props.setLocation(
+                                `ERROR(${err.code}): ${err.message}`,
+                            );
+                        };
 
                         navigator.geolocation.getCurrentPosition(
                             success,

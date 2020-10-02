@@ -32,11 +32,11 @@ const StartTheGood = (props /*: Props */) => {
             class="${styles.startChild} ${styles.startChildCopy}"
         >
             <p>
-                Don't be scared!
+                You made it!
             </p>
             <p>
-                Please point your phone at Parliament House and press "Start"
-                below to see the augmented-reality artwork.
+                Step 3: Please point your phone at Parliament House and press
+                "Start" below to see the augmented-reality artwork.
             </p>
             <div class="${styles.startChild}">
                 <a
