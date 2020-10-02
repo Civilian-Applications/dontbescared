@@ -1,4 +1,5 @@
 type AppState = {
+    fov: number,
     lat: number,
     lng: number,
     elevation: number,
@@ -7,12 +8,27 @@ type AppState = {
 };
 
 type Params = {
+    fov: string,
     lat: string,
     lng: string,
     elevation: string,
     scale: string,
 };
 
+type Coords = {
+    latitude: number,
+    longitude: number,
+    altitude?: number,
+    accuracy: number,
+    altitudeAccuracy?: number,
+    heading?: number,
+    speed?: number,
+};
+
+type Pos = {
+    coords: Coords,
+    timestamp: number,
+};
 declare module "finalhandler" {
     declare module.exports: any;
 }

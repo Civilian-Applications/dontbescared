@@ -24,7 +24,7 @@ const parsedQueryStringParams /*: function */ = (
 };
 
 // test("parsedQueryStringParams does what it says on the box", () /*: void */ => {
-//     const queryString = "lat=39.45&lng=149.2345&elevation=745&scale=500";
+//     const queryString = "fov=76&lat=39.45&lng=149.2345&elevation=745&scale=500";
 //     const expectedParamsObject /*: Params */ = {
 //         lat: "39.45",
 //         lng: "149.2345",
