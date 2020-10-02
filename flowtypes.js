@@ -1,4 +1,5 @@
 type AppState = {
+    fov: number,
     lat: number,
     lng: number,
     elevation: number,
@@ -7,6 +8,7 @@ type AppState = {
 };
 
 type Params = {
+    fov: string,
     lat: string,
     lng: string,
     elevation: string,

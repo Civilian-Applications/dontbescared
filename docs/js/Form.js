@@ -5,6 +5,7 @@ import { useContext } from "../web_modules/preact/hooks.js";
 import { AppContext } from "./AppContext.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import htm from "../web_modules/htm.js";
+import FormInputFov from "./FormInputFov.js";
 import FormInputLat from "./FormInputLat.js";
 import FormInputLng from "./FormInputLng.js";
 import FormInputElevation from "./FormInputElevation.js";
@@ -37,12 +38,15 @@ const Form = (props /*: Props */) => {
                 screenfull.request().then(() /*: void */ => {
                     // setTimeout(() /*: void */ => {}, 500);
                     route(
-                        `/coal/lat=${state.lat}&lng=${state.lng}&elevation=${state.elevation}&scale=${state.scale}`,
+                        `/coal/fov=${state.fov}&lat=${state.lat}&lng=${state.lng}&elevation=${state.elevation}&scale=${state.scale}`,
                     );
                 });
             }}"
         >
             <fieldset>
+                <div class="row">
+                    <${FormInputFov} />
+                </div>
                 <div class="row">
                     <${FormInputLat} />
                 </div>

@@ -24,6 +24,7 @@ context("Actions", () => {
 
     it("The debug page has custom input fields for lat, lng, elevation and scale", () => {
         // $FlowFixMe
+        cy.get("input[data-cy=fov]").should("exist");
         cy.get("input[data-cy=lat]").should("exist");
         cy.get("input[data-cy=lng]").should("exist");
         cy.get("input[data-cy=elevation]").should("exist");

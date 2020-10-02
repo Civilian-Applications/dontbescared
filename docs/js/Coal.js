@@ -26,6 +26,7 @@ type Props = {
 const Coal = (props /*: Props */) => {
     // State for coordinates
     const [coordinates, setCoordinates] = useState(false); // - Doesn't work with Flow
+    const [fov, setFov] = useState("76"); // - Doesn't work with Flow
     const [lat, setLat] = useState("-35.306203"); // - Doesn't work with Flow
     const [lng, setLng] = useState("149.1250937"); // - Doesn't work with Flow
     const [elevation, setElevation] = useState("1400"); // - Doesn't work with Flow
@@ -39,6 +40,7 @@ const Coal = (props /*: Props */) => {
         // Pulling params from the URL in various ways
         if (props.params !== "" && coordinates === false) {
             let p /*: Params */ = parsedQueryStringParams(props.params);
+            setFov(p.fov);
             setLat(p.lat);
             setLng(p.lng);
             setElevation(p.elevation);
@@ -49,12 +51,14 @@ const Coal = (props /*: Props */) => {
                 document.location.toString(),
             ).searchParams;
             if (
+                searchParams.has("fov") &&
                 searchParams.has("lat") &&
                 searchParams.has("lng") &&
                 searchParams.has("elevation") &&
                 searchParams.has("scale") &&
                 coordinates === false
             ) {
+                setFov(searchParams.get("fov"));
                 setLat(searchParams.get("lat"));
                 setLng(searchParams.get("lng"));
                 setElevation(searchParams.get("elevation"));
@@ -123,7 +127,7 @@ const Coal = (props /*: Props */) => {
             <a-camera
                 near="1"
                 far="70000"
-                fov="123"
+                fov="${fov}"
                 rotation-reader
                 gps-camera="
 					positionMinAccuracy:10000;

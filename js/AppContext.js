@@ -16,10 +16,14 @@ const reducer = (state, action) =>
     // https://www.pika.dev/npm/@vve/immer
     produce(state, (draft) => {
         if (action.type === "UPDATE_ALL") {
+            draft.fov = action.payload.fov;
             draft.lat = action.payload.lat;
             draft.lng = action.payload.lng;
             draft.elevation = action.payload.elevation;
             draft.scale = action.payload.scale;
+        }
+        if (action.type === "UPDATE_FOV") {
+            draft.fov = action.payload;
         }
         if (action.type === "UPDATE_LAT") {
             draft.lat = action.payload;
@@ -34,6 +38,7 @@ const reducer = (state, action) =>
             draft.scale = action.payload;
         }
         if (action.type === "RESET") {
+            draft.fov = action.payload.fov;
             draft.lat = action.payload.lat;
             draft.lng = action.payload.lng;
             draft.elevation = action.payload.elevation;
