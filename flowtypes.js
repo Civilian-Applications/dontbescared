@@ -15,6 +15,20 @@ type Params = {
     scale: string,
 };
 
+type Coords = {
+    latitude: number,
+    longitude: number,
+    altitude?: number,
+    accuracy: number,
+    altitudeAccuracy?: number,
+    heading?: number,
+    speed?: number,
+};
+
+type Pos = {
+    coords: Coords,
+    timestamp: number,
+};
 declare module "finalhandler" {
     declare module.exports: any;
 }

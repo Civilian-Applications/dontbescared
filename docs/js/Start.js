@@ -1,11 +1,14 @@
 // @flow
 import { h, render } from "../web_modules/preact.js";
+import { useState, useEffect } from "../web_modules/preact/hooks.js";
 import { Router, Link } from "../web_modules/preact-router.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import screenfull from "../web_modules/screenfull.js";
 import htm from "../web_modules/htm.js";
-import StartTheGood from "./StartTheGood.js";
 import StartTheBad from "./StartTheBad.js";
+import StartGetLocation from "./StartGetLocation.js";
+import StartGetVideo from "./StartGetVideo.js";
+import StartTheGood from "./StartTheGood.js";
 
 const html = htm.bind(h);
 rawStyles({});
@@ -33,16 +36,27 @@ type Props = {
 */
 const Start = (props /*: Props */) => {
     //
+    const [coords /*: Coordinates */, setCoords] = useState({});
+    const [video /*: Coordinates */, setVideo] = useState(false);
 
     return html`
         <div class="${styles.startContainer}">
             <div class="${styles.contentContainer}">
                 ${(() => {
                     // $FlowFixMe
-                    if (Modernizr.getusermedia) {
-                        return html`<${StartTheGood} />`;
-                    } else {
+                    if (!Modernizr.getusermedia) {
                         return html`<${StartTheBad} />`;
+                    } else if (
+                        coords.latitude === undefined ||
+                        coords.longitude === undefined
+                    ) {
+                        return html`<${StartGetLocation}
+                            setCoords=${setCoords}
+                        />`;
+                    } else if (video === false) {
+                        return html`<${StartGetVideo} setVideo=${setVideo} />`;
+                    } else {
+                        return html`<${StartTheGood} />`;
                     }
                 })()}
             </div>
