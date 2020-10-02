@@ -94,19 +94,19 @@ const Coal = (props /*: Props */) => {
         window.requestAnimationFrame(spinTheCoal);
     });
 
+    // <a-assets timeout="30000">
+    //     <a-asset-item
+    //         id="gltfmodel"
+    //         src="/img/coal/coal.glb"
+    //         response-type="arraybuffer"
+    //     ></a-asset-item>
+    // </a-assets>
     return html`
         <a-scene
             embedded
             vr-mode-ui="enabled: false"
             arjs="sourceType:webcam;debugUIEnabled:false;videoTexture:true;"
         >
-            <a-assets timeout="30000">
-                <a-asset-item
-                    id="gltfmodel"
-                    src="/img/coal/coal.glb"
-                    response-type="arraybuffer"
-                ></a-asset-item>
-            </a-assets>
             <a-entity
                 id="coal"
                 position="0 ${elevation} 0"
@@ -123,12 +123,12 @@ const Coal = (props /*: Props */) => {
             <a-camera
                 near="1"
                 far="70000"
-                fov="76"
+                fov="123"
                 rotation-reader
                 gps-camera="
-			positionMinAccuracy:10000;
-			minDistance:0;
-			maxDistance:0;"
+					positionMinAccuracy:10000;
+					minDistance:0;
+					maxDistance:0;"
             ></a-camera>
             <!-- LIGHTING-->
             <a-entity light="type: ambient; intensity: 2.5;"></a-entity>
