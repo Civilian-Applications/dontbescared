@@ -29,7 +29,7 @@ const Nav = (props /*: Props */) => {
 					<${Link}
 						activeClassName="${styles.activeNavItem}"
 						href="/">
-							v0.35
+							v0.36
 					</${Link}>
 				</li>
 				<li>
@@ -43,7 +43,7 @@ const Nav = (props /*: Props */) => {
                                     fov: 76,
                                     lat: -35.306203,
                                     lng: 149.1250937,
-                                    elevation: 1400,
+                                    elevation: 1700,
                                     scale: 1000,
                                 };
                                 dispatch({
@@ -52,7 +52,7 @@ const Nav = (props /*: Props */) => {
                                 });
                             });
                         }}"
-						href="/coal/?fov=76&lat=-35.3062030&lng=149.1250937&elevation=1400&scale=1000">
+                    href="/coal/?fov=${76}&lat=${-35.306203}&lng=${149.1250937}&elevation=${1700}&scale=${1000}"
 							Parliament
 					</${Link}>
 				</li>
@@ -76,7 +76,7 @@ const Nav = (props /*: Props */) => {
                                 });
                             });
                         }}"
-						href="/coal/?fov=76&lat=-33.521331&lng=151.346974&elevation=600&scale=500">
+						href="/coal/?fov=${76}&lat=${-33.521331}&lng=${151.346974}&elevation=${600}&scale=${500}">
 							The bay
 					</${Link}>
 				</li>

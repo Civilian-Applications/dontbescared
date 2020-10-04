@@ -43,15 +43,14 @@ const StartGetLocation = (props /*: Props */) => {
                             Don't be scared!
                         </p>
                         <p>
-                            Thanks for visiting. Assuming you are on location
-                            near Parliament House in Canberra, you are just a
-                            few quick steps away from seeing the artwork.
+                            Thanks for visiting. There are a few things we need
+                            to check on your phone.
                         </p>
                     `;
                 }
             })()}
             <p>
-                Step 1: Verify your location
+                Step 1: Check your location
             </p>
             <div class="${styles.startChild}">
                 <a

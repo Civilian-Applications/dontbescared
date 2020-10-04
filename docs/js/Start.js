@@ -8,7 +8,7 @@ import htm from "../web_modules/htm.js";
 import StartTheBad from "./StartTheBad.js";
 import StartGetLocation from "./StartGetLocation.js";
 import StartGetVideo from "./StartGetVideo.js";
-import StartTheGood from "./StartTheGoodDebug.js";
+import StartTheGood from "./StartTheGood.js";
 
 const html = htm.bind(h);
 rawStyles({});
