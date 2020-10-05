@@ -63,7 +63,7 @@ const StartTheGood = (props /*: Props */) => {
                         });
                     }}"
                     href="/coal/?fov=${76}&lat=${-35.306203}&lng=${149.1250937}&elevation=${1700}&scale=${1000}"
-                    >Parliament <i class="material-icons right">login</i></a
+                    >Go <i class="material-icons right">login</i></a
                 >
             </div>
         </div>

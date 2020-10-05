@@ -40,17 +40,14 @@ const StartGetLocation = (props /*: Props */) => {
                 } else {
                     return html`
                         <p>
-                            Don't be scared!
-                        </p>
-                        <p>
-                            Thanks for visiting. There are a few things we need
-                            to check on your phone.
+                            Thanks for trying it out. There are a few things we
+                            need to check on your phone.
                         </p>
                     `;
                 }
             })()}
             <p>
-                Step 1: Check your location
+                Step 1: Please allow us to use your location
             </p>
             <div class="${styles.startChild}">
                 <a

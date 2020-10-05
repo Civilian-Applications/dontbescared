@@ -33,7 +33,7 @@ const StartGetVideo = (props /*: Props */) => {
             class="${styles.startChild} ${styles.startChildCopy}"
         >
             <p>
-                Step 2: Check your camera input
+                Step 2: Please allow us to display your camera input
             </p>
             <div class="${styles.startChild}">
                 <a
