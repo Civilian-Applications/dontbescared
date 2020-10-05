@@ -13,7 +13,6 @@ const [styles] = createStyles({
     },
     startChildCopy: {
         color: "white",
-        fontSize: "1rem",
         marginBottom: "1rem",
         textAlign: "center",
     },
@@ -33,7 +32,7 @@ const StartGetVideo = (props /*: Props */) => {
             class="${styles.startChild} ${styles.startChildCopy}"
         >
             <p>
-                Step 2: Check your camera input
+                Step 2: Please allow us to display your camera input
             </p>
             <div class="${styles.startChild}">
                 <a
