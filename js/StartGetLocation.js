@@ -13,9 +13,17 @@ const [styles] = createStyles({
     },
     startChildCopy: {
         color: "white",
-        fontSize: "1rem",
         marginBottom: "1rem",
         textAlign: "center",
+    },
+    problem: {
+        color: "red",
+        marginBottom: "1rem",
+        textAlign: "center",
+    },
+    li: {
+        marginBottom: ".2rem",
+        textAlign: "left",
     },
 });
 
@@ -35,8 +43,50 @@ const StartGetLocation = (props /*: Props */) => {
             class="${styles.startChild} ${styles.startChildCopy}"
         >
             ${(() => {
-                if (typeof props.problem !== "undefined") {
-                    return html` <p>${props.problem}. Please try again.</p> `;
+                let placeholderIOS = false;
+                if (
+                    navigator.userAgent.match(/iPhone/i) ||
+                    navigator.userAgent.match(/iPad/i)
+                ) {
+                    placeholderIOS = true;
+                }
+
+                if (
+                    typeof props.problem !== "undefined" &&
+                    placeholderIOS === true
+                ) {
+                    return html`
+                        <p class="${styles.problem}">${props.problem}</p>
+                        <p>Please check your phone settings and try again.</p>
+                        <p>
+                            Enabling iOS Location Services:
+                        </p>
+                        <ol>
+                            <li class="${styles.li}">
+                                Go to Settings > Privacy > Location Services.
+                            </li>
+                            <li class="${styles.li}">
+                                Make sure that Location Services is on.
+                            </li>
+                            <li class="${styles.li}">
+                                Scroll down to find the Safari app.
+                            </li>
+                            <li class="${styles.li}">
+                                Tap the app and select "While Using the App"
+                                Allows access to Location Services only when the
+                                app or one of its features is visible on the
+                                screen
+                            </li>
+                        </ol>
+                    `;
+                } else if (
+                    typeof props.problem !== "undefined" &&
+                    placeholderIOS === false
+                ) {
+                    return html`
+                        <p class="${styles.problem}">${props.problem}</p>
+                        ;
+                    `;
                 } else {
                     return html`
                         <p>

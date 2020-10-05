@@ -15,12 +15,10 @@ rawStyles({});
 const [styles] = createStyles({
     startContainer: {
         height: "100%",
-        backgroundImage: "url(/img/dbs_background.2.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        overflow: "auto",
     },
     contentContainer: {
-        height: "100%",
+        minHeight: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

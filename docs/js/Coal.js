@@ -7,16 +7,7 @@ import * as THREE from "../web_modules/three.js";
 import parsedQueryStringParams from "./parsedQueryStringParams.js";
 
 const html = htm.bind(h);
-rawStyles({
-    body: {
-        margin: "0px",
-        overflow: "hidden",
-    },
-    canvas: {
-        margin: "0px",
-        overflow: "hidden",
-    },
-});
+rawStyles({});
 
 /*::
 type Props = {

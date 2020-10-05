@@ -11,12 +11,10 @@ rawStyles({});
 const [styles] = createStyles({
     homeContainer: {
         height: "100%",
-        backgroundImage: "url(/img/dbs_background.2.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        overflow: "auto",
     },
     contentContainer: {
-        height: "100%",
+        minHeight: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -30,7 +28,11 @@ const [styles] = createStyles({
     },
     homeChildCopy: {
         color: "white",
-        fontSize: "1rem",
+        marginBottom: "1rem",
+        textAlign: "center",
+    },
+    problem: {
+        color: "red",
         marginBottom: "1rem",
         textAlign: "center",
     },
@@ -64,6 +66,31 @@ const Home = (props /*: Props */) => {
                         augmented-reality artwork visualises what it would look
                         like if Scott Morrison brought it to parliament.
                     </p>
+                    ${(() => {
+                        if (
+                            navigator.userAgent.match(/Android/i) ||
+                            navigator.userAgent.match(/webOS/i) ||
+                            navigator.userAgent.match(/iPhone/i) ||
+                            navigator.userAgent.match(/iPad/i) ||
+                            navigator.userAgent.match(/iPod/i) ||
+                            navigator.userAgent.match(/BlackBerry/i) ||
+                            navigator.userAgent.match(/Windows Phone/i)
+                        ) {
+                            return html``;
+                        } else {
+                            return html`
+                                <p class="${styles.problem}">
+                                    By the way, it looks like you're not using a
+                                    phone. We won't try to stop you but remember
+                                    that we'll need to access your device's
+                                    location, orientation and camera input. If
+                                    the device you're on doesn't support those
+                                    features, you won't be able to see the
+                                    artwork.
+                                </p>
+                            `;
+                        }
+                    })()}
                     <div class="${styles.homeChild}">
                         <a
                             data-cy="start"

@@ -17,7 +17,6 @@ const [styles] = createStyles({
     },
     startChildCopy: {
         color: "white",
-        fontSize: "1rem",
         marginBottom: "1rem",
         textAlign: "center",
     },

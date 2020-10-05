@@ -11,12 +11,10 @@ rawStyles({});
 const [styles] = createStyles({
     appointementContainer: {
         height: "100%",
-        backgroundImage: "url(/img/dbs_background.2.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        overflow: "auto",
     },
     contentContainer: {
-        height: "100%",
+        minHeight: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -30,7 +28,6 @@ const [styles] = createStyles({
     },
     appointementChildCopy: {
         color: "white",
-        fontSize: "1rem",
         marginBottom: "1rem",
         textAlign: "center",
     },
