@@ -4,7 +4,7 @@ import { Router, Link } from "../web_modules/preact-router.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import { useContext } from "../web_modules/preact/hooks.js";
 import { AppContext } from "./AppContext.js";
-// import StartTheGoodDebug from "./StartTheGoodDebug.js";
+import StartTheGoodDebug from "./StartTheGoodDebug.js";
 import screenfull from "../web_modules/screenfull.js";
 import htm from "../web_modules/htm.js";
 
@@ -65,8 +65,8 @@ const StartTheGood = (props /*: Props */) => {
                     >Go <i class="material-icons right">login</i></a
                 >
             </div>
+            <${StartTheGoodDebug} />
         </div>
     `;
 };
-// <${StartTheGoodDebug} />
 export default StartTheGood;

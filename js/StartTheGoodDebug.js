@@ -45,7 +45,6 @@ const StartTheGood = (props /*: Props */) => {
                             });
                         });
                     }}"
-                    href="/coal/?fov=76&lat=-33.521331&lng=151.346974&elevation=600&scale=500"
                     href="/coal/?fov=${76}&lat=${-33.521331}&lng=${151.346974}&elevation=${600}&scale=${500}"
                     >The Bay <i class="material-icons right">login</i></a
                 >
