@@ -63,19 +63,16 @@ const StartGetLocation = (props /*: Props */) => {
                         </p>
                         <ol>
                             <li class="${styles.li}">
-                                Go to Settings > Privacy > Location Services.
+                                Go to Settings > Privacy > Location Services
                             </li>
                             <li class="${styles.li}">
-                                Make sure that Location Services is on.
+                                Make sure that Location Services is on
                             </li>
                             <li class="${styles.li}">
-                                Scroll down to find the Safari app.
+                                Scroll down to find the Safari app
                             </li>
                             <li class="${styles.li}">
                                 Tap the app and select "While Using the App"
-                                Allows access to Location Services only when the
-                                app or one of its features is visible on the
-                                screen
                             </li>
                         </ol>
                     `;

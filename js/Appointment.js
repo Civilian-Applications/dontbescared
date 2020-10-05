@@ -49,7 +49,7 @@ const Appointement = (props /*: Props */) => {
                 >
                     <p>
                         Maybe you're not currently on location in Canberra. Or,
-                        because this work uses new technology, it might not work
+                        because this work uses new technology, it might not
                         be working on your phone. Maybe it's just a bit
                         confusing.
                     </p>
