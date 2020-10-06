@@ -26,6 +26,9 @@ const StartTheGood = (props /*: Props */) => {
 
     return html`
         <div>
+            <p>
+                (These locations are enabled for development)
+            </p>
             <div class="${styles.startChild}">
                 <a
                     data-cy="start"
