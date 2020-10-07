@@ -29,7 +29,7 @@ const Nav = (props /*: Props */) => {
 					<${Link}
 						activeClassName="${styles.activeNavItem}"
 						href="/">
-							v0.42
+							v0.43
 					</${Link}>
 				</li>
 				<li>
@@ -52,7 +52,7 @@ const Nav = (props /*: Props */) => {
                                 });
                             });
                         }}"
-                    href="/coal/?fov=${76}&lat=${-35.306203}&lng=${149.1250937}&elevation=${1700}&scale=${1000}"
+                    href="/coal/?fov=${76}&lat=${-35.306203}&lng=${149.1250937}&elevation=${1700}&scale=${1000}">
 							Parliament
 					</${Link}>
 				</li>
