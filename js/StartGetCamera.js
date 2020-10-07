@@ -56,7 +56,17 @@ const StartGetVideo = (props /*: Props */) => {
                             from Parliament House. You need to be in Canberra
                             and within 10km of Parliament to view this artwork.
                             You can continue but you won't see the coal. Why not
-                            watch the video instead?
+                            ${"\xa0"}
+                            <a href="https://www.instagram.com/p/CF86rNoA7Fp/"
+                                >watch the video</a
+                            >
+                            ${"\xa0"} instead?
+                        </p>
+                        <p class="${styles.problem}">
+                            Or better still, if you're planning to visit the
+                            Contour 556 Festval, ${"\xa0"}
+                            <a href="/book">book us in for a viewing</a> while
+                            you’re there.
                         </p>
                     `;
                 } else {
