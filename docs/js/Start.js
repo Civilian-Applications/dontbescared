@@ -1,13 +1,13 @@
 // @flow
 import { h, render } from "../web_modules/preact.js";
-import { useState, useEffect } from "../web_modules/preact/hooks.js";
+import { useState } from "../web_modules/preact/hooks.js";
 import { Router, Link } from "../web_modules/preact-router.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import screenfull from "../web_modules/screenfull.js";
 import htm from "../web_modules/htm.js";
 import StartTheBad from "./StartTheBad.js";
 import StartGetLocation from "./StartGetLocation.js";
-import StartGetVideo from "./StartGetVideo.js";
+import StartGetCamera from "./StartGetCamera.js";
 import StartTheGood from "./StartTheGood.js";
 
 const html = htm.bind(h);
@@ -61,7 +61,7 @@ const Start = (props /*: Props */) => {
                             problem="${location}"
                         />`;
                     } else if (video === false) {
-                        return html`<${StartGetVideo} setVideo=${setVideo} />`;
+                        return html`<${StartGetCamera} setVideo=${setVideo} />`;
                     } else {
                         return html`<${StartTheGood} />`;
                     }

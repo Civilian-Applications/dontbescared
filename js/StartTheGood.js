@@ -1,5 +1,6 @@
 // @flow
 import { h, render } from "../web_modules/preact.js";
+import { useEffect } from "../web_modules/preact/hooks.js";
 import { Router, Link } from "../web_modules/preact-router.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import { useContext } from "../web_modules/preact/hooks.js";
@@ -29,6 +30,12 @@ type Props = {
 const StartTheGood = (props /*: Props */) => {
     // State
     const [state, dispatch] = useContext(AppContext); // - Doesn't work with Flow
+    useEffect(() => {
+        // $FlowFixMe
+        ga("set", "page", "/start#good");
+        ga("send", "pageview");
+        console.log("/start#good");
+    }, []);
 
     return html`
         <div
@@ -39,7 +46,7 @@ const StartTheGood = (props /*: Props */) => {
                 Thanks, all done.
             </p>
             <p>
-                Please point your phone towards Parliament House and tap the
+                Please point your phone towards “Parliament House” and tap the
                 button below to see the augmented-reality artwork
             </p>
             <div class="${styles.startChild}">

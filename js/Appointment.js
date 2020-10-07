@@ -39,6 +39,12 @@ type Props = {
 */
 const Appointement = (props /*: Props */) => {
     //
+    useEffect(() => {
+        // $FlowFixMe
+        ga("set", "page", "/appointment");
+        ga("send", "pageview");
+        console.log("/appointment");
+    }, []);
 
     return html`
         <div class="${styles.appointementContainer}">
@@ -49,9 +55,8 @@ const Appointement = (props /*: Props */) => {
                 >
                     <p>
                         Maybe you're not currently on location in Canberra. Or,
-                        because this work uses new technology, it might not
-                        be working on your phone. Maybe it's just a bit
-                        confusing.
+                        because this work uses new technology, it might not be
+                        working on your phone. Maybe it's just a bit confusing.
                     </p>
                     <p>
                         We would love to meet you ${"\xa0"}

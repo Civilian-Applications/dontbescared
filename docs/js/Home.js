@@ -44,6 +44,12 @@ type Props = {
 */
 const Home = (props /*: Props */) => {
     //
+    useEffect(() => {
+        // $FlowFixMe
+        ga("set", "page", "/");
+		ga("send", "pageview");
+		console.log("/");
+    }, []);
 
     return html`
         <div class="${styles.homeContainer}">
