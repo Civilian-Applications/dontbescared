@@ -124,11 +124,11 @@ const Coal = (props /*: Props */) => {
             </a-entity>
             <a-camera
                 near="1"
-                far="70000"
+                far="10000"
                 fov="${fov}"
                 rotation-reader
                 gps-camera="
-					positionMinAccuracy:10000;
+					positionMinAccuracy:1000;
 					minDistance:0;
 					maxDistance:0;"
             ></a-camera>
