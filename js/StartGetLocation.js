@@ -38,6 +38,10 @@ type Props = {
 const StartGetLocation = (props /*: Props */) => {
     //
     useEffect(() => {
+        // if ("ga" in window) {
+        //     const tracker = ga.getAll()[0];
+        //     if (tracker) tracker.send("event", "Test", "Test GA");
+        // }
         // $FlowFixMe
         ga("set", "page", "/start#location");
         ga("send", "pageview");
