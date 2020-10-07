@@ -1,8 +1,9 @@
 // @flow
 import { h, render } from "../web_modules/preact.js";
-import { useState } from "../web_modules/preact/hooks.js";
+import { useState, useEffect } from "../web_modules/preact/hooks.js";
 import { Router, Link } from "../web_modules/preact-router.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
+import { distance } from "./distance.js";
 import screenfull from "../web_modules/screenfull.js";
 import htm from "../web_modules/htm.js";
 import StartTheBad from "./StartTheBad.js";
@@ -37,6 +38,30 @@ const Start = (props /*: Props */) => {
     const [coords /*: Coordinates */, setCoords] = useState({});
     const [video /*: Coordinates */, setVideo] = useState(false);
     const [location /*: null | string | true */, setLocation] = useState(null);
+    const [
+        distanceFromParliament /*: null | number */,
+        setDistanceFromParliament,
+    ] = useState(null);
+
+    useEffect(() => {
+        const parliamentLat /*: number */ = -35.306203;
+        const parliamentLng = 149.1250937;
+        setDistanceFromParliament(
+            Math.floor(
+                distance(
+                    parliamentLat,
+                    parliamentLng,
+                    coords.latitude,
+                    coords.longitude,
+                    "K",
+                ),
+            ),
+        );
+    }, [coords]);
+
+    useEffect(() => {
+        console.log("Here, setting the distance: ", distanceFromParliament);
+    }, [distanceFromParliament]);
 
     return html`
         <div class="${styles.startContainer}">
@@ -61,7 +86,10 @@ const Start = (props /*: Props */) => {
                             problem="${location}"
                         />`;
                     } else if (video === false) {
-                        return html`<${StartGetCamera} setVideo=${setVideo} />`;
+                        return html`<${StartGetCamera}
+                            distanceFromParliament="${distanceFromParliament}"
+                            setVideo=${setVideo}
+                        />`;
                     } else {
                         return html`<${StartTheGood} />`;
                     }
