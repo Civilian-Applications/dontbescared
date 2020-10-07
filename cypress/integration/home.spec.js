@@ -31,7 +31,7 @@ context("Home", () => {
         // $FlowFixMe
         cy.get("a[data-cy=video]")
             .should("have.attr", "href")
-            .and("include", "https://youtu.be/VlCRzogXy9s");
+            .and("include", "https://www.instagram.com/p/CF86rNoA7Fp");
     });
 
     // $FlowFixMe

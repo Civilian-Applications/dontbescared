@@ -98,7 +98,7 @@ const Home = (props /*: Props */) => {
                         <a
                             data-cy="video"
                             class="blue waves-effect waves-light btn-small"
-                            href="https://youtu.be/VlCRzogXy9s"
+                            href="https://www.instagram.com/p/CF86rNoA7Fp/"
                             >Watch a video
                             <i class="material-icons right"
                                 >play_circle_outline</i

@@ -72,8 +72,8 @@ const StartTheGood = (props /*: Props */) => {
                     >Go <i class="material-icons right">login</i></a
                 >
             </div>
-            <${StartTheGoodDebug} />
         </div>
     `;
 };
+//<${StartTheGoodDebug} />
 export default StartTheGood;
