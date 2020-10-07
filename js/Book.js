@@ -41,9 +41,9 @@ const Appointement = (props /*: Props */) => {
     //
     useEffect(() => {
         // $FlowFixMe
-        ga("set", "page", "/appointment");
+        ga("set", "page", "/book");
         ga("send", "pageview");
-        console.log("/appointment");
+        console.log("/book");
     }, []);
 
     return html`

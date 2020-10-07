@@ -11,7 +11,12 @@ import htm from "../web_modules/htm.js";
 
 const html = htm.bind(h);
 rawStyles({});
-const [styles] = createStyles({});
+
+const [styles] = createStyles({
+    textInput: {
+        color: "white",
+    },
+});
 
 /*::
 type Props = {
@@ -29,6 +34,7 @@ const FormInputFov = (props /*: Props */) => {
         <div class="input-field">
             <input
                 type="text"
+                class="${styles.textInput}"
                 data-cy="fov"
                 name="fov"
                 onInput="${(e /*: SyntheticInputEvent<EventTarget> */) => {

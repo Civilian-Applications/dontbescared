@@ -47,19 +47,16 @@ const Home = (props /*: Props */) => {
     useEffect(() => {
         // $FlowFixMe
         ga("set", "page", "/");
-		ga("send", "pageview");
-		console.log("/");
+        ga("send", "pageview");
+        console.log("/");
     }, []);
 
     return html`
         <div class="${styles.homeContainer}">
             <div class="${styles.contentContainer}">
-                <div
-                    data-cy="copy"
-                    class="${styles.homeChild} ${styles.homeChildCopy}"
-                >
-                    <h1>
-                        Don't Be Scared
+                <div class="${styles.homeChild} ${styles.homeChildCopy}">
+                    <h1 data-cy="heading">
+                        Don’t Be Scared
                     </h1>
                     <p>
                         In February 2017, then Australian Treasurer Scott
@@ -99,7 +96,7 @@ const Home = (props /*: Props */) => {
                     })()}
                     <div class="${styles.homeChild}">
                         <a
-                            data-cy="start"
+                            data-cy="video"
                             class="blue waves-effect waves-light btn-small"
                             href="https://youtu.be/VlCRzogXy9s"
                             >Watch a video
@@ -110,9 +107,9 @@ const Home = (props /*: Props */) => {
                     </div>
                     <div class="${styles.homeChild}">
                         <a
-                            data-cy="start"
+                            data-cy="book"
                             class="blue waves-effect waves-light btn-small"
-                            href="/appointment"
+                            href="/book"
                             >Book a viewing
                             <i class="material-icons right">event</i></a
                         >

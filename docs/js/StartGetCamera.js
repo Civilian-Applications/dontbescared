@@ -43,7 +43,7 @@ const StartGetVideo = (props /*: Props */) => {
             </p>
             <div class="${styles.startChild}">
                 <a
-                    data-cy="start"
+                    data-cy="camera"
                     class="blue waves-effect waves-light btn-small"
                     onClick="${(e /*: Event */) /*: void */ => {
                         e.preventDefault();
