@@ -4,7 +4,7 @@ import htm from "../web_modules/htm.js";
 import Router from "../web_modules/preact-router.js";
 import { AppProvider } from "./AppContext.js";
 import Home from "./Home.js";
-import Appointment from "./Appointment.js";
+import Book from "./Book.js";
 import Start from "./Start.js";
 import Debug from "./Debug.js";
 import Coal from "./Coal.js";
@@ -21,7 +21,7 @@ const App /*: function */ = (props /*: Props */) => {
     		<${Router}  url=${props.url}>
 				<${Home} path="/" />
 				<${Start} path="/start" />
-				<${Appointment} path="/appointment" />
+				<${Book} path="/book" />
 				<${Debug} path="/debug/" />
 				<${Coal} path="/coal/:params?" />
     		</${Router}>

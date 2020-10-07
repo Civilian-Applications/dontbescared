@@ -26,9 +26,12 @@ const StartTheGood = (props /*: Props */) => {
 
     return html`
         <div>
+            <p>
+                (These locations are enabled for development)
+            </p>
             <div class="${styles.startChild}">
                 <a
-                    data-cy="start"
+                    data-cy="startTheBay"
                     class="blue waves-effect waves-light btn-small"
                     onClick="${() /*: void */ => {
                         screenfull.request().then(() /*: void */ => {
@@ -51,7 +54,7 @@ const StartTheGood = (props /*: Props */) => {
             </div>
             <div class="${styles.startChild}">
                 <a
-                    data-cy="start"
+                    data-cy="startKillcareBeach"
                     class="blue waves-effect waves-light btn-small"
                     onClick="${() /*: void */ => {
                         screenfull.request().then(() /*: void */ => {

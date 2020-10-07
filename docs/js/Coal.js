@@ -26,6 +26,13 @@ const Coal = (props /*: Props */) => {
     const [rotation, setRotation] = useState(0); // - Doesn't work with Flow
     const [then, setThen] = useState(null); // - Doesn't work with Flow
     const [trigger, setTrigger] = useState(0); // - Doesn't work with Flow
+    //
+    useEffect(() => {
+        // $FlowFixMe
+        ga("set", "page", "/coal");
+        ga("send", "pageview");
+        console.log("/coal");
+    }, []);
 
     useEffect(() => {
         // Pulling params from the URL in various ways

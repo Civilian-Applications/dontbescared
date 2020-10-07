@@ -24,6 +24,9 @@ const [styles] = createStyles({
         padding: "0 1rem",
         margin: "0 auto",
     },
+    heading: {
+        color: "white",
+    },
 });
 
 /*::
@@ -39,7 +42,7 @@ const Debug = (props /*: Props */) => {
             <${Nav} />
 
             <div class="${styles.formContainer}">
-                <h2>Custom coordinates</h2>
+                <h2 class="${styles.heading}">Custom coordinates</h2>
                 <${Form} />
             </div>
         </div>

@@ -2,11 +2,11 @@
 /// <reference types="cypress" />
 
 // $FlowFixMe
-context("Actions", () => {
+context("Start", () => {
     // $FlowFixMe
     beforeEach(() => {
         // $FlowFixMe
-        cy.visit("http://localhost:4000");
+        cy.visit("http://localhost:4000/start");
     });
     // $FlowFixMe
     afterEach(() => {
@@ -18,17 +18,31 @@ context("Actions", () => {
     it("The start page has copy", () => {
         // $FlowFixMe
         cy.get("div[data-cy=copy]").should("exist");
-        cy.get("div[data-cy=copy]").should("contain", "Don't be scared!");
+        cy.get("div[data-cy=copy]").should(
+            "contain",
+            "Please allow us to use your location",
+        );
     });
     // $FlowFixMe
-    it("The start page has a Start", () => {
+    it("The start page has a location button", () => {
         // $FlowFixMe
-        cy.get("a[data-cy=start]").should("exist");
+        cy.get("a[data-cy=location]").should("exist");
     });
 
-    // address link
-    it("The start link works", () => {
+    it("The location,  camera and start links work", () => {
         // $FlowFixMe
+        cy.get("a[data-cy=location]").click();
+        cy.get("div[data-cy=copy]").should("exist");
+        cy.get("div[data-cy=copy]").should(
+            "contain",
+            "Please allow us to display your camera input",
+        );
+        cy.get("a[data-cy=camera]").click();
+        cy.get("div[data-cy=copy]").should("exist");
+        cy.get("div[data-cy=copy]").should(
+            "contain",
+            "Please point your phone towards",
+        );
         cy.get("a[data-cy=start]").then(function ($a) {
             const href = $a.prop("href");
             cy.request(href)

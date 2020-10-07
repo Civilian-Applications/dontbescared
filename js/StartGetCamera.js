@@ -1,5 +1,6 @@
 // @flow
 import { h, render } from "../web_modules/preact.js";
+import { useEffect } from "../web_modules/preact/hooks.js";
 import { Router, Link } from "../web_modules/preact-router.js";
 import { createStyles, rawStyles } from "../web_modules/simplestyle-js.js";
 import screenfull from "../web_modules/screenfull.js";
@@ -25,6 +26,12 @@ type Props = {
 */
 const StartGetVideo = (props /*: Props */) => {
     //
+    useEffect(() => {
+        // $FlowFixMe
+        ga("set", "page", "/start#camera");
+        ga("send", "pageview");
+        console.log("/start#camera");
+    }, []);
 
     return html`
         <div
@@ -36,7 +43,7 @@ const StartGetVideo = (props /*: Props */) => {
             </p>
             <div class="${styles.startChild}">
                 <a
-                    data-cy="start"
+                    data-cy="camera"
                     class="blue waves-effect waves-light btn-small"
                     onClick="${(e /*: Event */) /*: void */ => {
                         e.preventDefault();
