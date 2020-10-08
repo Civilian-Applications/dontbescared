@@ -89,13 +89,12 @@ const StartGetLocation = (props /*: Props */) => {
                 ) {
                     return html`
                         <p class="${styles.problem}">${props.problem}</p>
-                        ;
                     `;
                 } else {
                     return html`
                         <p>
-                            Thanks for trying it out. There are a few things we
-                            need to check on your phone.
+                            Thanks for looking. There are a few things we need
+                            to check on your phone.
                         </p>
                     `;
                 }
