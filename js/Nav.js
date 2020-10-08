@@ -29,7 +29,7 @@ const Nav = (props /*: Props */) => {
 					<${Link}
 						activeClassName="${styles.activeNavItem}"
 						href="/">
-							v0.48
+							v0.49
 					</${Link}>
 				</li>
 				<li>

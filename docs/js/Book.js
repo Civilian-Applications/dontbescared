@@ -39,13 +39,6 @@ type Props = {
 */
 const Appointement = (props /*: Props */) => {
     //
-    useEffect(() => {
-        // $FlowFixMe
-        ga("set", "page", "/book");
-        ga("send", "pageview");
-        console.log("/book");
-    }, []);
-
     return html`
         <div class="${styles.appointementContainer}">
             <div class="${styles.contentContainer}">

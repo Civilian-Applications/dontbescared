@@ -35,7 +35,6 @@ type Props = {
 */
 const Debug = (props /*: Props */) => {
     //
-    useEffect(() => {});
 
     return html`
         <div class="${styles.debugContainer}">
