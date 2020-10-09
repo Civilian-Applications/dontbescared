@@ -57,10 +57,10 @@ const StartTheGood = (props /*: Props */) => {
                         screenfull.request().then(() /*: void */ => {
                             const localState = {
                                 fov: 76,
-                                lat: -35.306203,
-                                lng: 149.1250937,
-                                elevation: 1700,
-                                scale: 1000,
+                                lat: -35.310198,
+                                lng: 149.1271447,
+                                elevation: 2000,
+                                scale: 1500,
                             };
                             dispatch({
                                 type: "UPDATE_ALL",
