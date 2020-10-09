@@ -41,8 +41,8 @@ const StartTheGood = (props /*: Props */) => {
         fov: 76,
         lat: -35.310198,
         lng: 149.1271447,
-        elevation: 2000,
-        scale: 1500,
+        elevation: 2500,
+        scale: 1750,
     };
 
     return html`
@@ -69,7 +69,7 @@ const StartTheGood = (props /*: Props */) => {
                             });
                         });
                     }}"
-                    href="/coal/?fov=${localState.fov}&lat=${localState.lat}&lng=${localState.lng}&elevation=${2000}&scale=${1500}"
+                    href="/coal/?fov=${localState.fov}&lat=${localState.lat}&lng=${localState.lng}&elevation=${localState.elevation}&scale=${localState.scale}"
                     >Go <i class="material-icons right">login</i></a
                 >
             </div>
