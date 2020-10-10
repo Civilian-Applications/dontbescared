@@ -37,6 +37,14 @@ const StartTheGood = (props /*: Props */) => {
         console.log("/start#good");
     }, []);
 
+    const localState = {
+        fov: 76,
+        lat: -35.310198,
+        lng: 149.1271447,
+        elevation: 2500,
+        scale: 1750,
+    };
+
     return html`
         <div
             data-cy="copy"
@@ -55,20 +63,13 @@ const StartTheGood = (props /*: Props */) => {
                     class="blue waves-effect waves-light btn-small"
                     onClick="${() /*: void */ => {
                         screenfull.request().then(() /*: void */ => {
-                            const localState = {
-                                fov: 76,
-                                lat: -35.306203,
-                                lng: 149.1250937,
-                                elevation: 1700,
-                                scale: 1000,
-                            };
                             dispatch({
                                 type: "UPDATE_ALL",
                                 payload: localState,
                             });
                         });
                     }}"
-                    href="/coal/?fov=${76}&lat=${-35.306203}&lng=${149.1250937}&elevation=${1700}&scale=${1000}"
+                    href="/coal/?fov=${localState.fov}&lat=${localState.lat}&lng=${localState.lng}&elevation=${localState.elevation}&scale=${localState.scale}"
                     >Go <i class="material-icons right">login</i></a
                 >
             </div>
